@@ -1,0 +1,50 @@
+/* タブレット向けレイアウト */
+@media all and (max-width: 1000px) {
+
+
+  .cows{
+    padding-top:100px;
+    text-align: center;
+  }
+
+
+
+  footer{
+    text-align: center;
+  }
+
+}
+
+/* モバイル向けレイアウト */
+@media all and (max-width: 670px) {
+
+  .header-right{
+    display: none;
+  }
+
+  .menu-icon{
+    display:block!important;
+  }
+
+  .cows{
+    padding-top:100px;
+    text-align: center;
+  }
+
+  .cow1{
+    width: 150px;
+    margin-bottom: 150px;
+  }
+
+  .cow2{
+    width: 180px;
+    margin-bottom: 150px;
+  }
+
+
+
+  footer{
+    text-align: center;
+  }
+
+}

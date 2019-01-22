@@ -1,0 +1,228 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Hiragino Kaku Gothic ProN";
+  /* background: linear-gradient(#00c9ff, #92fe9d);
+  background-repeat: none; */
+  background-image:url('../img/top.png');
+	background-size:cover;
+	background-repeat: no-repeat;
+}
+
+a {
+  text-decoration: none;
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+
+.container {
+  max-width: 1170px;
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+header {
+  height: 70px;
+  width: 100%;
+  background-color: rgba(0, 201, 255, 0.9);
+  position :fixed;
+  top: 0;
+  z-index: 10;
+}
+
+.header-left {
+  float: left;
+}
+
+.logo{
+  height:50px;
+  margin:10px 0;
+}
+
+.header-right{
+  float:right;
+  margin-right: 10px;
+  /* display: block; */
+}
+
+.menu{
+  height: 40px;
+  margin-top:15px;
+  margin-left:15px;
+
+}
+
+
+.menu-icon{
+  display: none!important;
+  color: white;
+  float:right;
+  font-size: 25px;
+  padding: 21px 15px;
+}
+
+
+.clear{
+  clear: left;
+}
+
+
+.clouds1{
+	clear: both;
+	width: 100%;
+  height: 150px;
+	/* position: relative; */
+	background-image: url('../img/kumo1.png');
+	background-repeat:no-repeat;
+	background-size: contain;
+	-moz-background-size:contain;
+  margin-top: 70px;
+	}
+
+.clouds2{
+	clear: both;
+	width: 100%;
+  height: 90px;
+  margin-top:80px;
+	/* position: relative; */
+	background-image: url('../img/kumo2.png');
+	background-repeat:no-repeat;
+	background-size: contain;
+	-moz-background-size:contain;
+	}
+
+.baloon{
+  	/*background: black;*/
+  	left: 20%;
+  	top: 10%;
+  	clear: both;
+  	width: 150px;
+      height: 200px;
+  	position: absolute;
+  	background-image: url('../img/kikyu.png');
+  	background-repeat:no-repeat;
+  	background-size: contain;
+  	-moz-background-size:contain;
+  	}
+
+.cows{
+  /* display: block; */
+  padding-top:350px;
+  text-align: center;
+}
+
+.cow1{
+   width:170px;
+   float: left;
+   margin-bottom: 100px;
+   /* margin-top: 200px;
+   margin-left: 300px; */
+}
+
+.cow2{
+   width:260px;
+  margin-bottom: 100px;
+   /* position: relative; */
+   /* margin-top: 230px;
+ 	 right: 0px; */
+
+}
+
+
+.signBoard {
+	position:fixed;
+	left: 4%;
+	width: 220px;
+	height: 170px;
+	bottom: 0px;
+	overflow: hidden;
+  z-index: 10;
+	}
+
+
+footer p {
+  color: #eee;
+  font-size: 10px;
+}
+
+footer {
+  padding: 1px 0;
+  background-color: #330000;
+  text-align:center;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  margin-top: -30px;
+  ;
+}
+
+
+/*ポップアップコンセプト*/
+div.tooltip	{
+width: 400px;
+/*height: 300px;*/
+/*opacity: 1.0;*/
+position: absolute;
+left: -9999px;
+background: #1AA4FA;
+padding: 15px;
+border-radius: 30px;
+border: 10px solid #FFE371;
+/*border: 1px solid #AAA;*/
+}
+div.tooltip p{
+color: #FFF;
+/*background: #222;*/
+padding: 5px 10px;
+line-height: 30px;
+font-size: small;
+text-align: center;
+}
+
+div.tooltip h1{
+color: #FFF;
+/*background: #222;*/
+padding: 5px 10px;
+line-height: 30px;
+font-size: large;
+text-align: center;
+}
+
+/*ポップアップ説明*/
+div.tooltip2 {
+/*height: 300px;*/
+/*opacity: 1.0;*/
+position: absolute;
+left: -9999px;
+background: #FF8847;
+padding: 5px;
+border-radius: 10px;
+border: 3px solid #FFE371;
+/*border: 1px solid #AAA;*/
+}
+div.tooltip2 p{
+color: #FFF;
+/*background: #222;*/
+padding: 5px 5px;
+line-height: 0px;
+font-size: small;
+text-align: center;
+}
+
+
+/*マウスオーバーで半透明*/
+.alpha a:hover img {
+opacity: 0.7;
+filter: alpha(opacity=70);
+-ms-filter: "alpha(opacity=70)";
+}

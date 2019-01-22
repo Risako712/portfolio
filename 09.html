@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Risako Yasui</title>
+
+<link rel="stylesheet" type="text/css" href="style/portfolio.css">
+<link rel="stylesheet" type="text/css" href="style/reset.css">
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+
+<script src="js/top.js"></script>
+
+
+    <script>
+	//ふわっとページ移動
+        jQuery(function($){
+            $('body').fadeIn(1000);
+            $(window).on("beforeunload",function(e){
+                $('body').fadeOut();
+            });
+        });
+
+        (function($) {
+            $(function(){
+                var _imgNum = 0;    //画像の枚数
+                var _imgSize = 0;   //画像のサイズ
+                var _current = 0;   //現在の画像
+                var _timer = 18000;  //タイマー時間
+
+                //各ボタンの配置
+                /*
+                $('#container').append('<a href="#"><img src="img/btn_prev.png" width="15"id="btn-prev" /></a><a href="#"><img src="img/btn_next.png" width="15" id="btn-next"  /></a><div id="pagenation"><ul></ul></div>');
+                */
+
+                //画像サイズ取得
+                _imgSize = $('#banner ul li').width();
+
+                //メイン画像の数だけ繰り返す
+                $('#banner ul li').each(function(){
+                    //画像をずらして外に配置
+                    $(this).css('margin-left', -_imgSize);
+                    //画像の数だけページネーションボタンを作成
+                    if (_imgNum == _current) {
+                        //currentだったらアクティブ、メインの画像は表示
+                        $('#pagenation ul').append('<li class="active"><a href="#"><img src="img/pagenation.gif" width="12" height="24" /></a></li>');
+                        $(this).css('margin-left', '0px');
+                    } else {
+                        $('#pagenation ul').append('<li><a href="#"><img src="img/pagenation.gif" width="12" height="24" /></a></li>');
+                    }
+                    //ループの数をカウントして_imgNumに入れる
+                    _imgNum++;
+                });
+
+                //一定時間ごとにimageMoveを実行
+                var loopSwitch = setInterval(loop, _timer);
+                function loop() {
+                    imageMove(_current +1);
+                }
+
+
+                //ボタンをクリック
+                $('#btn-next').click(function(e){
+                    e.preventDefault();
+                    imageMove(_current +1);
+                });
+                $('#btn-prev').click(function(e){
+                    e.preventDefault();
+                    imageMove(_current -1);
+                });
+                //ページネーションクリック
+                $('#pagenation ul li').click(function(e) {
+                    e.preventDefault();
+                    var thisNum = $('#pagenation li').index(this);
+                    //押したボタンが現在の画像じゃなかったら実行
+                    if(thisNum  != _current) {
+                        imageMove(thisNum );
+                    }
+                });
+
+                function imageMove(next) {
+                    //ループ時間リセット
+                    clearInterval(loopSwitch);
+                    loopSwitch = setInterval(loop, _timer);
+                    //次の画像が次の画像より多きかったら右に配置（小さかったら左）
+                    var pos;
+                    if (_current < next) {
+                        pos = -_imgSize;
+                    } else {
+                        pos = _imgSize;
+                    }
+
+                    //次の画像が最後なら1枚目、１枚目なら最後
+                    if (next == _imgNum) {
+                        next = 0;
+                    } else if(next == -1) {
+                        next = (_imgNum-1);
+                    }
+
+                    //次の画像を動かす
+                    $("#banner li").eq(next)
+                    //次の画像を次の位置に配置
+                    .css("margin-left", pos)
+                    .animate({
+                        marginLeft: "0"
+                    },"fast");
+
+                    //現在の画像を動かす
+                    $("#banner li").eq(_current)
+                    .animate({
+                        marginLeft: -pos
+                    },"fast");
+
+                    //ページネーション現在のを消し次のをアクティブに
+                    $('#pagenation li').eq(_current).removeClass('active');
+                    $('#pagenation li').eq(next).addClass('active');
+
+                    //現在の番号を次の番号にする。
+                    _current = next;
+                }
+            });
+            })(jQuery);
+
+    </script>
+
+
+</head>
+
+<body>
+
+<script>//ふわっとページ移動
+document.body.style.display = 'none';
+</script>
+
+
+<!--ヘッダー-->
+<div id="pageHead-fixed">
+<header id="pageHead">
+	<div id="menu">
+
+    <nav class="globalNavi" >
+    <ul>
+    <li><div class="alpha"><div id="setsumei">
+	<a href="index.html"><img src="img/logo.png" height="50px" title="<p>TOPページへ</p>"></a>
+	</div></div></li>
+
+
+
+	<li><a href="about.html"><img src="img/about.png" height="45px" onMouseOver="this.src='img/about2.png'" onMouseOut="this.src='img/about.png'" ></a></li>
+	<li><a href="portfolio.html"><img src="img/portfolio2.png" height="45px"></a></li>
+	<li><img src="img/blog.png" height="45px" onMouseOver="this.src='img/blog2.png'" onMouseOut="this.src='img/blog.png'" ></li>
+	<li><a href="contact.html"><img src="img/contact.png" height="45px" onMouseOver="this.src='img/contact2.png'" onMouseOut="this.src='img/contact.png'" ></a></li>
+	</ul>
+</nav>
+</header>
+</div>
+</div>
+
+
+<div class="wrap">
+
+
+
+
+
+<br><br><br><br><br><br>
+
+
+    <div id="section">
+
+    <div class="content">
+
+       <center>
+           <img src="img/09.png">
+        </center>
+           <br><br>
+        <div style="float:left; width: 600px;">
+
+                    <div id="container">
+                        <div id="banner">
+
+                            <ul>
+                                <li><img src="img/portfolio/09/1.jpg" width="350" style="margin-left:115px;"></li>
+                                <li><img src="img/portfolio/09/2.jpg" width="350" style="margin-left:115px;"></li>
+                                <li><img src="img/portfolio/09/3.jpg" width="330" style="margin-left:125px;"></li>
+                                <li><img src="img/portfolio/09/4.jpg" width="330" style="margin-left:125px;"></li>
+                                <li><img src="img/portfolio/09/5.jpg" width="330" style="margin-left:125px;"></li>
+
+                            </ul>
+                        <br><br><br><br><br>
+                        　　　　　　　　　　
+                        <a href="#"><img src="img/btn_prev.png" width="20"id="btn-prev" style="margin-left:40px;"/></a>
+                        <a href="#"><img src="img/btn_next.png" width="20" id="btn-next"  /></a>
+                        </div>
+                        <br><br><br><br><br>
+                        　　　　　　　　　　
+
+
+                    </div>
+        </div>
+        <div style="margin-left:30px; width:250px; float:left;">
+        佐賀県唐津市の観光お助けアプリ。<br>
+        アプリのマップ機能を使いながら観光し、いく先々でコメントや写真を足跡として残すと、その日観光したルートが自動的にアプリ内に蓄積されていく。<br>
+        ルートを共有することで観光がもっと楽しくなる！
+        <br><br><br>
+        使用ソフト：Xcode<br>
+        使用言語：Swift2.0<br>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+<div style="clear:both;">
+
+        <img src="img/CG.png" width="200px">
+            <br><br>
+
+            <a href="01.html" class="thumnail">
+            <figure>
+                <img src="img/portfolio/thumb/01.png" height="200" width="200" alt="02">
+                <figcaption class="yellow">CG<br>DVDパッケージ</figcaption>
+            </figure>
+            </a>
+            <a href="02.html" class="thumnail">
+            <figure>
+                <img src="img/portfolio/thumb/02.png" height="200" width="200" alt="02">
+                <figcaption class="yellow">CG<br>決起ポスター</figcaption>
+            </figure>
+            </a>
+            <a href="03.html" class="thumnail">
+            <figure>
+                <img src="img/portfolio/thumb/03.png" height="200" width="200" alt="03">
+                <figcaption class="blue">3DCG<br>『Girl』</figcaption>
+            </figure>
+            </a>
+            <a href="04.html" class="thumnail">
+            <figure>
+                <img src="img/portfolio/thumb/04.png" height="200" width="200" alt="04">
+                <figcaption class="orange">CG<br>決起パンフレット</figcaption>
+            </figure>
+            </a>
+            <a href="05.html" class="thumnail">
+            <figure>
+                <img src="img/portfolio/thumb/05.png" height="200" width="200" alt="05">
+                <figcaption class="orange">CG<br>新入生フライヤー</figcaption>
+            </figure>
+            </a>
+        <div style="height:450px;">　</div>
+        <br><br>
+
+        <img src="img/WEB.png" width="200px">
+            <br><br>
+            <a href="06.html" class="thumnail">
+            <figure>
+                <img src="img/portfolio/thumb/06.png" height="200" width="200" alt="06">
+                <figcaption class="blue">WEB<br>『NOW』</figcaption>
+            </figure>
+            </a>
+            <a href="07.html" class="thumnail">
+            <figure>
+                <img src="img/portfolio/thumb/07.png" height="200" width="200" alt="07">
+                <figcaption class="green">WEB<br>『九州ワカスタ』</figcaption>
+            </figure>
+            </a>
+
+        <div style="height:230px;">　</div>
+        <br><br>
+
+        <img src="img/APP.png" width="200px">
+            <br><br>
+            <a href="08.html" class="thumnail">
+            <figure>
+                <img src="img/portfolio/thumb/08.png" height="200" width="200" alt="08">
+                <figcaption class="orange">学習アプリ<br>『あるふぁぼ』</figcaption>
+            </figure>
+            </a>
+
+
+        <div style="height:200px;">　</div>
+
+
+    </div>
+
+<br><br>
+
+    </div>
+
+</div>
+
+
+<footer id="footer">
+<p class="copyright">COPYRIGHT (C) RISAKO YASUI</p>
+</footer>
+
+</body>
+</html>
